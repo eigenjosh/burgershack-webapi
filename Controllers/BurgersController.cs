@@ -17,22 +17,22 @@ namespace burgershack_c.Controllers
         [HttpGet]
         public IEnumerable<Burger> Get()
         {
-            return Burgers;
+            return Program.Burgers;
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public Burger Get(int id)
         {
-            return Burgers.FirstOrDefault(b => b.Id == id);
+            return Program.Burgers.FirstOrDefault(b => b.Id == id);
         }
 
         // POST api/values
         [HttpPost]
         public IEnumerable<Burger> Post([FromBody]Burger burger)
         {
-            Burgers.Add(burger);
-            return Burgers;
+            Program.Burgers.Add(burger);
+            return Program.Burgers;
         }
 
         // PUT api/values/5

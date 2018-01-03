@@ -15,6 +15,20 @@ namespace burgershack_c
     {
 
         //VERY VERY VERY BAD NEVER DO THIS
+        public static List<Side> Sides = new List<Side>() {
+                new Side() {
+                    Id = 1,
+                    Name = "Straight Up",
+                    Description = "A plain old side \"seasoned\" to perfection",
+                    Price = 3.99 }
+        };
+        public static List<Drink> Drinks = new List<Drink>() {
+                new Drink() {
+                    Id = 1,
+                    Name = "Straight Up",
+                    Description = "A plain old drink \"seasoned\" to perfection",
+                    Price = 1.99 }
+        };
         public static List<Burger> Burgers = new List<Burger>() {
                 new Burger() {
                     Id = 1,
