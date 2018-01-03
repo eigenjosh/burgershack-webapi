@@ -13,21 +13,7 @@ namespace burgershack_c
 {
     public class Program
     {
-
         //VERY VERY VERY BAD NEVER DO THIS
-        public static List<Burger> Burgers = new List<Burger>() {
-                new Burger() {
-                    Id = 1,
-                    Name = "Straight Up",
-                    Description = "A plain old burger seasoned to perfection",
-                    Price = 9.99 },
-                new Burger() {
-                    Id = 2,
-                    Name = "Cheese Burger",
-                    Description = "Straight up with cheese, (Choose One: Provolone, Gouda, Munster, Swiss, Cheddar, Merican)",
-                    Price = 10.99 } };
-
-
         public static void Main(string[] args)
         {
             BuildWebHost(args).Run();

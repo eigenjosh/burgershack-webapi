@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using burgershack_c.Models;
+using burgershack_c.Repositories;
 using Microsoft.AspNetCore.Mvc;
 
 namespace burgershack_c.Controllers
@@ -10,35 +11,38 @@ namespace burgershack_c.Controllers
     [Route("api/[controller]")]
     public class BurgersController : Controller
     {
-        //AGAIN VERY BAD!!!!!!
-        public List<Burger> Burgers = Program.Burgers;
+        BurgerRepository db { get; set; }
+        public BurgersController()
+        {
+            db = new BurgerRepository();
+        }
 
         // GET api/values
         [HttpGet]
         public IEnumerable<Burger> Get()
         {
-            return Burgers;
+            return db.GetAll();
         }
 
         // GET api/values/5
         [HttpGet("{id}")]
         public Burger Get(int id)
         {
-            return Burgers.FirstOrDefault(b => b.Id == id);
+            return db.GetById(id);
         }
 
         // POST api/values
         [HttpPost]
-        public IEnumerable<Burger> Post([FromBody]Burger burger)
+        public Burger Post([FromBody]Burger burger)
         {
-            Burgers.Add(burger);
-            return Burgers;
+            return db.Add(burger);
         }
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
+        public Burger Put(int id, [FromBody]Burger burger)
         {
+            return db.GetOneByIdAndUpdate(id, burger);
         }
 
         // DELETE api/values/5
