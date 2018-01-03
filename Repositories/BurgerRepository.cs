@@ -49,10 +49,8 @@ namespace burgershack_c.Repositories
             using (IDbConnection dbConnection = Connection)
             {
                 dbConnection.Open();
-                int id = dbConnection.Execute($@"
-                INSERT INTO Burgers (Name, Description, Price)
-                VALUES ({burger.Name}, {burger.Description}, {burger.Price});
-                SELECT CAST(SCOPE_IDENTITY() as int)", burger);
+                int id = dbConnection.Execute("INSERT INTO Burgers (Name, Description, Price)"
+                 + " VALUES (@Name, @Description, @Price) SELECT CAST(SCOPE_IDENTITY() as int)", burger);
                 burger.Id = id;
                 return burger;
             }
