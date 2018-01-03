@@ -13,7 +13,6 @@ namespace burgershack_c
 {
     public class Program
     {
-
         //VERY VERY VERY BAD NEVER DO THIS
         public static List<Side> Sides = new List<Side>() {
                 new Side() {
